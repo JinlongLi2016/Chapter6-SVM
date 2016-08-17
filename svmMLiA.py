@@ -52,12 +52,12 @@ def smoSimple(dataMatIn, classLabels, C, toler, maxIter):
     '''
     dataMatrix = mat(dataMatIn); labelMat = mat(classLabels).transpose()
     b = 0; m,n = shape(dataMatrix)
-    alphas = mat(zeros(m, 1))
+    alphas = mat(zeros((m, 1)))
     iter = 0
     while (iter<maxIter):
         alphaPairsChanged = 0
         for i in range(m):
-            fXi = float(multiply(alphas, labelMat).T\
+            fXi = float(multiply(alphas, labelMat).T*\
                             (dataMatrix*dataMatrix[i, :].T)) + b
             Ei = fXi - float(labelMat[i])
             if ((labelMat[i]*Ei < -toler) and (alphas[i]<C)) or \
