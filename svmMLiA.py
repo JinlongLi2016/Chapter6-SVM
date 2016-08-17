@@ -1,3 +1,4 @@
+from random import random
 
 def loadDataSet(filename):
     '''
